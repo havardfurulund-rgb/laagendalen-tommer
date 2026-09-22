@@ -58,8 +58,8 @@ export const generateHighQualityImage = async (prompt: string): Promise<string |
       }
     });
     
-    const part = response.candidates?.[0]?.content?.parts.find(p => 'inlineData' in p);
-    return part && 'inlineData' in part ? `data:image/png;base64,${part.inlineData.data}` : null;
+    const part = response.candidates?.[0]?.content?.parts?.find(p => 'inlineData' in p);
+    return part?.inlineData?.data ? `data:image/png;base64,${part.inlineData.data}` : null;
   } catch (e) {
     console.error("High quality image generation failed:", e);
     return null;
@@ -86,8 +86,8 @@ export const editWoodImage = async (base64Image: string, prompt: string): Promis
       },
     });
 
-    const part = response.candidates?.[0]?.content?.parts.find(p => 'inlineData' in p);
-    return part && 'inlineData' in part ? `data:image/png;base64,${part.inlineData.data}` : null;
+    const part = response.candidates?.[0]?.content?.parts?.find(p => 'inlineData' in p);
+    return part?.inlineData?.data ? `data:image/png;base64,${part.inlineData.data}` : null;
   } catch (error) {
     console.error("Image edit failed:", error);
     return null;
