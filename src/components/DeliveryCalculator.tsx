@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Truck, MapPin, Phone } from 'lucide-react';
+import { Truck, MapPin } from 'lucide-react';
 import { getDeliveryQuote, DeliveryMode } from '../lib/delivery';
 
 export default function DeliveryCalculator() {
@@ -105,11 +105,7 @@ export default function DeliveryCalculator() {
               )}
 
               <div className="pt-4 border-t">
-                <div className="flex items-center gap-2 text-sm mb-4">
-                  <Phone size={18} />
-                  <span>Kontakt oss for detaljer:</span>
-                </div>
-                <p className="text-2xl font-bold">+47 XXX XX XXX</p>
+                <p className="text-sm text-gray-500">Kontaktinfo kommer</p>
               </div>
             </div>
           )}
