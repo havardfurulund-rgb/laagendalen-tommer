@@ -10,7 +10,7 @@ export default function WoodMarketplace({ products, onAddToCart }: WoodMarketpla
   return (
     <section className="py-20">
       <h2 className="display-font text-5xl font-bold mb-16 italic">Vårt utvalg</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map(product => (
           <div
             key={product.id}
@@ -26,13 +26,24 @@ export default function WoodMarketplace({ products, onAddToCart }: WoodMarketpla
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#8E9B90] mb-3">
               {product.type}
             </span>
-            <h3 className="text-2xl font-bold mb-4">{product.name}</h3>
-            <p className="text-gray-600 text-sm mb-8">{product.description}</p>
-            <div className="flex items-center justify-between">
-              <p className="text-3xl font-bold italic">{product.price},-</p>
+            <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
+            <p className="text-sm text-gray-500 mb-3">
+              {product.volumeLiters} L · {product.lengthCm} cm · {product.unitLabel}
+            </p>
+            <p className="text-gray-600 text-sm mb-6">{product.description}</p>
+            {product.pant > 0 && (
+              <p className="text-xs text-gray-500 mb-4">
+                Pant {product.pant},- — refunderes ved retur
+              </p>
+            )}
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-3xl font-bold italic">{product.price},-</p>
+                <p className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">inkl. mva</p>
+              </div>
               <button
                 onClick={() => onAddToCart(product)}
-                className="px-8 py-3 bg-black text-white rounded-xl font-bold uppercase text-[10px] tracking-wider hover:bg-opacity-90 transition-all"
+                className="px-8 py-3 bg-black text-white rounded-xl font-bold uppercase text-[10px] tracking-wider hover:bg-opacity-90 transition-all shrink-0"
               >
                 Legg i kurv
               </button>
