@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Truck, MapPin } from 'lucide-react';
 import { getDeliveryQuote, DeliveryMode } from '../lib/delivery';
+import { CONTACT } from '../constants';
 
 export default function DeliveryCalculator() {
   const [postalCode, setPostalCode] = useState('');
@@ -63,6 +64,16 @@ export default function DeliveryCalculator() {
                 </p>
               </div>
             )}
+
+            {mode === 'pickup' && (
+              <div className="bg-gray-50 p-4 rounded-2xl border text-sm space-y-1">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Hentedepot</p>
+                <p className="flex items-start gap-2 text-[#1a241e]">
+                  <MapPin size={14} className="mt-0.5 shrink-0 text-[#8E9B90]" aria-hidden />
+                  <span>{CONTACT.depotAddress}</span>
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -104,8 +115,20 @@ export default function DeliveryCalculator() {
                 </div>
               )}
 
-              <div className="pt-4 border-t">
-                <p className="text-sm text-gray-500">Kontaktinfo kommer</p>
+              <div className="pt-4 border-t space-y-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Kontakt / depot</p>
+                <p className="text-sm text-[#1a241e] flex items-start gap-2">
+                  <MapPin size={14} className="mt-0.5 shrink-0 text-[#8E9B90]" aria-hidden />
+                  <span>{CONTACT.depotAddress}</span>
+                </p>
+                <p className="text-sm text-[#1a241e]">
+                  <a href={`tel:${CONTACT.phoneTel}`} className="hover:underline">
+                    {CONTACT.phoneDisplay}
+                  </a>
+                  <span className="block text-xs text-gray-500 mt-1">
+                    Telefon for kontakt — bestill via handlekurven på nettsiden.
+                  </span>
+                </p>
               </div>
             </div>
           )}

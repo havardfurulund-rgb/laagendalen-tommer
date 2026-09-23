@@ -4,10 +4,10 @@ import { Product } from './types';
 export const INITIAL_PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Bjørkeved 40L',
+    name: 'Bjørkeved 40 L',
     type: 'Bjørk',
     price: 89,
-    description: 'Tørr bjørkeved i praktisk 40L sekk. Ideell for peis og ovn.',
+    description: 'Tørr bjørk fra Lågendalen. Klar til peisen — hent selv eller få levert.',
     imageUrl: 'https://images.unsplash.com/photo-1520110120835-c96a9ef9569d',
     volumeLiters: 40,
     lengthCm: 30,
@@ -16,10 +16,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '2',
-    name: 'Bjørkeved 60L',
+    name: 'Bjørkeved 60 L',
     type: 'Bjørk',
     price: 129,
-    description: 'Norsk bjørkeved i 60L sekk. Høy brennverdi og lite sot.',
+    description: 'Litt mer tørr bjørk i sekken. Lokal ved, klar når du fyrer.',
     imageUrl: 'https://images.unsplash.com/photo-1520110120835-c96a9ef9569d',
     volumeLiters: 60,
     lengthCm: 33,
@@ -28,10 +28,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '3',
-    name: 'Blandingsved 40L',
+    name: 'Blandingsved 40 L',
     type: 'Miks',
     price: 69,
-    description: 'Solid miks av hardved og bartre i 40L engangssekk.',
+    description: 'Praktisk miks til hverdagsfyring. Tørr ved fra dalen.',
     imageUrl: 'https://images.unsplash.com/photo-1590054320984-7eb356230f25',
     volumeLiters: 40,
     lengthCm: 30,
@@ -40,10 +40,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '4',
-    name: 'Bjørkeved storsekk 1000L',
+    name: 'Bjørkeved storsekk 1000 L',
     type: 'Bjørk',
     price: 1890,
-    description: 'Storsekk med tørr bjørkeved. Leveres med kranbil ved hjemlevering.',
+    description: 'Stor sekk med tørr bjørk. Levert hjem eller hent selv.',
     imageUrl: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e',
     volumeLiters: 1000,
     lengthCm: 33,
@@ -52,10 +52,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '5',
-    name: 'Blandingsved storsekk 1500L',
+    name: 'Blandingsved storsekk 1500 L',
     type: 'Miks',
     price: 2190,
-    description: 'Stor storsekk med blandingsved for hele sesongen.',
+    description: 'Stor blandingssekk — tørr og klar. Lokal ved med hjemlevering.',
     imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
     volumeLiters: 1500,
     lengthCm: 40,
@@ -64,10 +64,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '6',
-    name: 'Furu 60L',
+    name: 'Furu 60 L',
     type: 'Furu',
     price: 99,
-    description: 'Tørr furuved i 60L sekk — god til opptenning og kaminer.',
+    description: 'Tørr furuved til peis og oppstart. Fra Lågendalen.',
     imageUrl: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
     volumeLiters: 60,
     lengthCm: 30,
@@ -75,3 +75,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     pant: 0,
   },
 ];
+
+/** Locked contact / depot (Havard GO 2026-09-23). Display only — ordering stays web/mailto. */
+export const CONTACT = {
+  phoneDisplay: '+47 919 22 572',
+  phoneTel: '+4791922572',
+  depotAddress: 'Lågendalsveien 1732, 3282 Kvelde',
+  depotStreet: 'Lågendalsveien 1732',
+  depotPostal: '3282 Kvelde',
+  email: 'bestilling@laagendalen-tommer.no',
+} as const;
