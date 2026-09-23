@@ -4,3 +4,5 @@ import { CONTACT } from './constants';
 export const CONTACT_PHONE = CONTACT.phoneDisplay;
 export const CONTACT_PHONE_HREF = `tel:${CONTACT.phoneTel}`;
 export const DEPOT_ADDRESS = CONTACT.depotAddress;
+
+// Merge-clean refresh: ordering stays web/mailto, not phone-first.
