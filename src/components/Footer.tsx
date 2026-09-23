@@ -1,49 +1,36 @@
 import React from 'react';
 import { MapPin, Phone } from 'lucide-react';
-import { CONTACT } from '../constants';
+import { CONTACT_PHONE, CONTACT_PHONE_HREF, DEPOT_ADDRESS } from '../site';
 
-/** Site footer — contact display only. Primary order path remains cart + mailto. */
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer className="mt-20 bg-[#1a241e] px-6 py-12 text-white">
+      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
         <div>
-          <h3 className="display-font text-2xl font-bold italic mb-3">Lågendalen Tømmer</h3>
-          <p className="text-sm text-gray-500 leading-relaxed">
-            Premium ved til Vestfold, Telemark og Oslo-området. Bestill via nettbutikken —
-            vi følger opp ordrene dine.
+          <p className="display-font text-3xl font-bold italic">Lågendalen Tømmer</p>
+          <p className="mt-3 max-w-sm text-sm text-white/70">
+            Tørr ved fra Lågendalen — bestill enkelt i nettbutikken.
           </p>
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Depot</p>
-          <p className="text-sm text-[#1a241e] flex items-start gap-2">
-            <MapPin size={16} className="mt-0.5 shrink-0 text-[#8E9B90]" aria-hidden />
-            <span>
-              {CONTACT.depotStreet}
-              <br />
-              {CONTACT.depotPostal}
-            </span>
-          </p>
-        </div>
-
-        <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Kontakt</p>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-white/60">Kontakt</h2>
           <a
-            href={`tel:${CONTACT.phoneTel}`}
-            className="text-sm text-[#1a241e] flex items-center gap-2 hover:underline"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-semibold underline"
+            href={CONTACT_PHONE_HREF}
           >
-            <Phone size={16} className="shrink-0 text-[#8E9B90]" aria-hidden />
-            {CONTACT.phoneDisplay}
+            <Phone size={15} />
+            {CONTACT_PHONE}
           </a>
-          <p className="text-xs text-gray-500 mt-3">
-            Bestilling skjer i handlekurven på nettsiden. Telefon er for kontakt, ikke
-            hovedvei for ordre.
+        </div>
+
+        <div>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-white/60">Hent selv</h2>
+          <p className="mt-3 flex items-start gap-2 text-sm text-white/90">
+            <MapPin className="mt-0.5 shrink-0" size={15} />
+            <span>{DEPOT_ADDRESS}</span>
           </p>
         </div>
-      </div>
-      <div className="border-t py-4 text-center text-[11px] text-gray-400 tracking-wide">
-        © {new Date().getFullYear()} Lågendalen Tømmer
       </div>
     </footer>
   );
