@@ -7,7 +7,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'Bjørkeved 40 L',
     type: 'Bjørk',
     price: 89,
-    description: 'Tørr bjørk fra Lågendalen. Klar til peisen — hent selv eller få levert.',
+    description: 'Tørr bjørkeved i praktisk 40L-sekk. Klar for peis og ovn.',
     imageUrl: 'https://images.unsplash.com/photo-1520110120835-c96a9ef9569d',
     volumeLiters: 40,
     lengthCm: 30,
@@ -19,7 +19,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'Bjørkeved 60 L',
     type: 'Bjørk',
     price: 129,
-    description: 'Litt mer tørr bjørk i sekken. Lokal ved, klar når du fyrer.',
+    description: 'Norsk bjørkeved i 60L-sekk. Høy brennverdi, lite sot.',
     imageUrl: 'https://images.unsplash.com/photo-1520110120835-c96a9ef9569d',
     volumeLiters: 60,
     lengthCm: 33,
@@ -31,7 +31,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'Blandingsved 40 L',
     type: 'Miks',
     price: 69,
-    description: 'Praktisk miks til hverdagsfyring. Tørr ved fra dalen.',
+    description: 'Solid miks av hardved og bartre i 40L engangssekk.',
     imageUrl: 'https://images.unsplash.com/photo-1590054320984-7eb356230f25',
     volumeLiters: 40,
     lengthCm: 30,
@@ -43,7 +43,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'Bjørkeved storsekk 1000 L',
     type: 'Bjørk',
     price: 1890,
-    description: 'Stor sekk med tørr bjørk. Levert hjem eller hent selv.',
+    description: 'Storsekk med tørr bjørkeved. Leveres med kranbil ved hjemlevering.',
     imageUrl: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e',
     volumeLiters: 1000,
     lengthCm: 33,
@@ -55,7 +55,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     name: 'Blandingsved storsekk 1500 L',
     type: 'Miks',
     price: 2190,
-    description: 'Stor blandingssekk — tørr og klar. Lokal ved med hjemlevering.',
+    description: 'Stor storsekk med blandingsved for hele sesongen.',
     imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
     volumeLiters: 1500,
     lengthCm: 40,
@@ -75,3 +75,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     pant: 0,
   },
 ];
+
+/** Locked contact / depot (Havard GO 2026-09-23). Display only — ordering stays web/mailto. */
+export const CONTACT = {
+  phoneDisplay: '+47 919 22 572',
+  phoneTel: '+4791922572',
+  depotAddress: 'Lågendalsveien 1732, 3282 Kvelde',
+  depotStreet: 'Lågendalsveien 1732',
+  depotPostal: '3282 Kvelde',
+  email: 'bestilling@laagendalen-tommer.no',
+} as const;
