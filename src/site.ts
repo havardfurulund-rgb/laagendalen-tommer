@@ -1,4 +1,6 @@
-export const CONTACT_PHONE = '+47 919 22 572';
-export const CONTACT_PHONE_HREF = 'tel:+4791922572';
+import { CONTACT } from './constants';
 
-export const DEPOT_ADDRESS = 'Lågendalsveien 1732, 3282 Kvelde';
+/** Canonical contact aliases — values live in CONTACT (Havard GO 2026-09-23). */
+export const CONTACT_PHONE = CONTACT.phoneDisplay;
+export const CONTACT_PHONE_HREF = `tel:${CONTACT.phoneTel}`;
+export const DEPOT_ADDRESS = CONTACT.depotAddress;
