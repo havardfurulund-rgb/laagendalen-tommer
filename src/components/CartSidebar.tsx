@@ -290,7 +290,7 @@ export default function CartSidebar({
                   type="email"
                   value={form.email}
                   onChange={e => updateForm('email', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2-night"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black"
                 />
               </div>
 
