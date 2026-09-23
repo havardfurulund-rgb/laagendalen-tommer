@@ -35,6 +35,7 @@ export default function CartSidebar({
   isOpen,
   onClose,
   items,
+  onRemove,
   onUpdateQuantity,
   onClearCart,
 }: CartSidebarProps) {
@@ -175,6 +176,14 @@ export default function CartSidebar({
                         aria-label="Øk"
                       >
                         <Plus size={14} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => onRemove(item.id)}
+                        aria-label="Fjern"
+                        className="text-gray-400 hover:text-black"
+                      >
+                        <X size={14} />
                       </button>
                     </div>
                   </div>

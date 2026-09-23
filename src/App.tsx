@@ -35,7 +35,11 @@ const App = () => {
           {view === 'studio' && <AIStudio />}
         </div>
       </main>
-      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} items={cart} onRemove={(id) => setCart(c => c.filter(i => i.id !== id))} onUpdateQuantity={(id, d) => setCart(c => c.map(i => i.id === id ? {...i, quantity: Math.max(1, i.quantity + d)} : i))} onClearCart={() => setCart([])} />
+      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} items={cart} onRemove={(id) => setCart(c => c.filter(i => i.id !== id))} onUpdateQuantity={(id, d) => setCart(c => c.flatMap(i => {
+        if (i.id !== id) return [i];
+        const quantity = i.quantity + d;
+        return quantity > 0 ? [{ ...i, quantity }] : [];
+      }))} onClearCart={() => setCart([])} />
       <AIAssistant />
     </div>
   );
