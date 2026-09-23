@@ -40,7 +40,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '4',
-    name: 'Bjørkeved storsekk 1000L',
+    name: 'Bjørkeved storsekk 1000 L',
     type: 'Bjørk',
     price: 1890,
     description: 'Stor sekk med tørr bjørk. Levert hjem eller hent selv.',
@@ -52,7 +52,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: '5',
-    name: 'Blandingsved storsekk 1500L',
+    name: 'Blandingsved storsekk 1500 L',
     type: 'Miks',
     price: 2190,
     description: 'Stor blandingssekk — tørr og klar. Lokal ved med hjemlevering.',
