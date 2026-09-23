@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Truck, MapPin } from 'lucide-react';
 import { getDeliveryQuote, DeliveryMode } from '../lib/delivery';
-import { CONTACT_PHONE, CONTACT_PHONE_HREF, DEPOT_ADDRESS } from '../site';
+import { CONTACT } from '../constants';
 
 export default function DeliveryCalculator() {
   const [postalCode, setPostalCode] = useState('');
@@ -66,13 +66,12 @@ export default function DeliveryCalculator() {
             )}
 
             {mode === 'pickup' && (
-              <div className="flex gap-3 items-start rounded-2xl border border-[#8E9B90] bg-[#8E9B90] bg-opacity-10 p-5">
-                <MapPin className="mt-0.5 shrink-0 text-[#1a241e]" size={18} />
-                <div className="text-sm text-[#1a241e]">
-                  <p className="font-bold">Hent selv på depotet</p>
-                  <p>{DEPOT_ADDRESS}</p>
-                  <p className="mt-1 text-xs">Frakt: 0,-</p>
-                </div>
+              <div className="bg-gray-50 p-4 rounded-2xl border text-sm space-y-1">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Hentedepot</p>
+                <p className="flex items-start gap-2 text-[#1a241e]">
+                  <MapPin size={14} className="mt-0.5 shrink-0 text-[#8E9B90]" aria-hidden />
+                  <span>{CONTACT.depotAddress}</span>
+                </p>
               </div>
             )}
           </div>
@@ -116,12 +115,19 @@ export default function DeliveryCalculator() {
                 </div>
               )}
 
-              <div className="pt-4 border-t">
-                <p className="text-sm text-gray-500">
-                  Spørsmål om levering?{' '}
-                  <a className="font-semibold text-black underline" href={CONTACT_PHONE_HREF}>
-                    Kontakt oss på {CONTACT_PHONE}
+              <div className="pt-4 border-t space-y-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Kontakt / depot</p>
+                <p className="text-sm text-[#1a241e] flex items-start gap-2">
+                  <MapPin size={14} className="mt-0.5 shrink-0 text-[#8E9B90]" aria-hidden />
+                  <span>{CONTACT.depotAddress}</span>
+                </p>
+                <p className="text-sm text-[#1a241e]">
+                  <a href={`tel:${CONTACT.phoneTel}`} className="hover:underline">
+                    {CONTACT.phoneDisplay}
                   </a>
+                  <span className="block text-xs text-gray-500 mt-1">
+                    Telefon for kontakt — bestill via handlekurven på nettsiden.
+                  </span>
                 </p>
               </div>
             </div>
