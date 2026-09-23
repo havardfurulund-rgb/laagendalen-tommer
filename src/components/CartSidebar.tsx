@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { X, Minus, Plus, MapPin, Truck } from 'lucide-react';
 import { CartItem } from '../types';
 import { getDeliveryQuote, DeliveryMode } from '../lib/delivery';
+import { DEPOT_ADDRESS } from '../site';
 
 interface CartSidebarProps {
   isOpen: boolean;
@@ -35,6 +36,7 @@ export default function CartSidebar({
   isOpen,
   onClose,
   items,
+  onRemove,
   onUpdateQuantity,
   onClearCart,
 }: CartSidebarProps) {
@@ -75,7 +77,7 @@ export default function CartSidebar({
       `E-post: ${form.email}`,
       mode === 'home'
         ? `Leveringsadresse: ${form.address}`
-        : 'Levering: Hent selv',
+        : `Levering: Hent selv på ${DEPOT_ADDRESS}`,
       `Postnummer: ${postalCode || '(ikke oppgitt)'}`,
       `Leveringsmåte: ${mode === 'home' ? 'Hjemlevering' : 'Hent selv'}`,
       `Fraktsone: ${delivery.zone ?? 'n/a'} — ${delivery.label}`,
@@ -176,6 +178,14 @@ export default function CartSidebar({
                       >
                         <Plus size={14} />
                       </button>
+                      <button
+                        type="button"
+                        onClick={() => onRemove(item.id)}
+                        aria-label="Fjern"
+                        className="text-gray-400 hover:text-black"
+                      >
+                        <X size={14} />
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -226,7 +236,16 @@ export default function CartSidebar({
                 )}
 
                 {mode === 'pickup' && (
-                  <p className="text-xs text-gray-500">{delivery.label}</p>
+                  <div className="flex gap-3 items-start rounded-xl border border-[#8E9B90] bg-[#8E9B90] bg-opacity-10 p-4">
+                    <MapPin className="mt-0.5 shrink-0 text-[#1a241e]" size={14} />
+                    <p className="text-xs text-[#1a241e]">
+                      <span className="font-bold">Hent selv på depotet</span>
+                      <br />
+                      {DEPOT_ADDRESS}
+                      <br />
+                      <span className="text-gray-600">Frakt: 0,-</span>
+                    </p>
+                  </div>
                 )}
               </div>
             </>
@@ -309,6 +328,19 @@ export default function CartSidebar({
                     placeholder="Gateadresse"
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black"
                   />
+                </div>
+              )}
+
+              {mode === 'pickup' && (
+                <div className="flex gap-3 items-start rounded-xl border border-[#8E9B90] bg-[#8E9B90] bg-opacity-10 p-4">
+                  <MapPin className="mt-0.5 shrink-0 text-[#1a241e]" size={14} />
+                  <p className="text-xs text-[#1a241e]">
+                    <span className="font-bold">Hent selv på depotet</span>
+                    <br />
+                    {DEPOT_ADDRESS}
+                    <br />
+                    <span className="text-gray-600">Frakt: 0,-</span>
+                  </p>
                 </div>
               )}
 

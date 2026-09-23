@@ -1,3 +1,5 @@
+import { DEPOT_ADDRESS } from '../site';
+
 /**
  * Fraktberegning (stub til Drift GO).
  * Soner A/B/C = 350/550/850 kr for ca. 0–15 / 15–30 / 30–50 km.
@@ -51,7 +53,7 @@ export function getDeliveryQuote(
   mode: DeliveryMode
 ): DeliveryQuote {
   if (mode === 'pickup') {
-    return { cost: 0, zone: 'pickup', label: 'Hent selv — 0,-' };
+    return { cost: 0, zone: 'pickup', label: `Hent selv — 0,- · ${DEPOT_ADDRESS}` };
   }
 
   const digits = postalCode.replace(/\D/g, '');
