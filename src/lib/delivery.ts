@@ -4,6 +4,8 @@
  * Kartlegging via postnummer-intervaller inntil reell sone-logikk er klar.
  */
 
+import { CONTACT } from '../constants';
+
 export type DeliveryMode = 'home' | 'pickup';
 
 export type DeliveryZone = 'A' | 'B' | 'C' | 'pickup' | null;
@@ -51,7 +53,11 @@ export function getDeliveryQuote(
   mode: DeliveryMode
 ): DeliveryQuote {
   if (mode === 'pickup') {
-    return { cost: 0, zone: 'pickup', label: 'Hent selv — 0,-' };
+    return {
+      cost: 0,
+      zone: 'pickup',
+      label: `Hent selv — ${CONTACT.depotAddress} (0,-)`,
+    };
   }
 
   const digits = postalCode.replace(/\D/g, '');
@@ -77,7 +83,7 @@ export function getDeliveryQuote(
     return {
       cost: 0,
       zone: null,
-      label: 'Utenfor leveringssone — kontakt oss',
+      label: `Utenfor leveringssone — kontakt oss (${CONTACT.phoneDisplay})`,
     };
   }
 
