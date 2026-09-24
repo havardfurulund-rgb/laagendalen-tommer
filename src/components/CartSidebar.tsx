@@ -29,7 +29,12 @@ const EMPTY_FORM: OrderForm = {
   address: '',
 };
 
-/** Stub mottaker til Bestill-CTA er koblet til backend. */
+/**
+ * Stub mottaker til Bestill-CTA er koblet til ekte betaling.
+ *
+ * P0 FORBUDT: fake Vipps / setTimeout → «Takk for handelen» / vipps-pending mock.
+ * Live Vercel var stuck på 23f3ddc med mock; denne filen skal aldri reintrodusere det.
+ */
 const ORDER_MAILTO = 'bestilling@laagendalen-tommer.no';
 
 export default function CartSidebar({
@@ -119,7 +124,7 @@ export default function CartSidebar({
     });
     window.location.href = mailto;
     setSubmittedNote(
-      'Bestillingen er klargjort som e-postutkast (mailto-stub). Betaling er ikke gjennomført.'
+      'Bestillingen er klargjort som e-postutkast (mailto-stub). Betaling er IKKE gjennomført — ingen Vipps/kort ennå.'
     );
   };
 
@@ -252,7 +257,7 @@ export default function CartSidebar({
           ) : (
             <form id="bestill-form" onSubmit={handleSubmitOrder} className="space-y-4">
               <p className="text-xs text-gray-500">
-                Fyll inn kontaktdetaljer. Bestilling sendes som e-postutkast (mailto-stub) — ingen betaling i denne PoC-en.
+                Fyll inn kontaktdetaljer. Bestilling sendes som e-postutkast (mailto-stub) — ingen Vipps-mock og ingen betalingssuksess før ekte checkout er live.
               </p>
 
               <div>
