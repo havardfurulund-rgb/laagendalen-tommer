@@ -3,13 +3,13 @@ import {
   getOrder,
   markOrderPaid,
   type OrderPaidStatus,
-} from './_lib/orders';
+} from './_lib/orders.js';
 import {
   fetchStripeSessionStatus,
   fetchVippsPaymentStatus,
   stripeConfigured,
   vippsConfigured,
-} from './_lib/providers';
+} from './_lib/providers.js';
 
 function cors(res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
