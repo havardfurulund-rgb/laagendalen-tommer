@@ -60,7 +60,7 @@ export default function DeliveryCalculator() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black"
                 />
                 <p className="text-xs text-gray-500 mt-2">
-                  Stub-soner A/B/C (350/550/850) til Drift GO. Leverer Vestfold, Telemark og Oslo-området.
+                  Fraktpris beregnes ut fra postnummer. Vi leverer i Vestfold, Telemark og Oslo-området – eller hent selv i Kvelde.
                 </p>
               </div>
             )}
