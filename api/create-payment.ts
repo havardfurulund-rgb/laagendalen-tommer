@@ -1,12 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getTrustedProduct, ORDER_INBOX_PRIMARY, ORDER_INBOX_FALLBACK } from './_lib/catalog';
-import { getDeliveryQuote, type DeliveryMode } from './_lib/delivery';
+import { getTrustedProduct, ORDER_INBOX_PRIMARY, ORDER_INBOX_FALLBACK } from './_lib/catalog.js';
+import { getDeliveryQuote, type DeliveryMode } from './_lib/delivery.js';
 import {
   generateOrderId,
   nokToOre,
   saveOrder,
   type OrderRecord,
-} from './_lib/orders';
+} from './_lib/orders.js';
 import {
   createStripeCheckout,
   createVippsPayment,
@@ -15,7 +15,7 @@ import {
   type CustomerInput,
   type ComputedLine,
   type ComputedOrder,
-} from './_lib/providers';
+} from './_lib/providers.js';
 
 function cors(res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
