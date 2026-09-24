@@ -4,8 +4,8 @@ import {
   getOrderByProviderRef,
   markOrderPaid,
   saveOrder,
-} from '../_lib/orders';
-import { getStripe } from '../_lib/providers';
+} from '../_lib/orders.js';
+import { getStripe } from '../_lib/providers.js';
 
 export const config = {
   api: {
