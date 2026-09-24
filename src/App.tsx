@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import WoodMarketplace from './components/WoodMarketplace';
 import CartSidebar from './components/CartSidebar';
 import AIAssistant from './components/AIAssistant';
-import AIStudio from './components/AIStudio';
 import DeliveryCalculator from './components/DeliveryCalculator';
 import Footer from './components/Footer';
 import { INITIAL_PRODUCTS } from './constants';
@@ -33,7 +32,6 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-6">
           {view === 'shop' && <WoodMarketplace products={products} onAddToCart={addToCart} />}
           {view === 'delivery' && <DeliveryCalculator />}
-          {view === 'studio' && <AIStudio />}
         </div>
       </main>
       <Footer />
