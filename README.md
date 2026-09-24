@@ -2,6 +2,14 @@
 
 En moderne web-applikasjon for Lågendalen Tømmer bygget med React, Vite, og Google Gemini AI.
 
+## P0 hotfix — fake Vipps
+
+**Live Vercel (`laagendalen-tommer.vercel.app`) var stuck på commit `23f3ddc`** som fortsatt hadde `vipps-pending` + `setTimeout(…, 4000)` → falsk «Takk for handelen!» uten betaling.
+
+`main` (fra `188b7d9` / `7c17736`) har allerede mailto-stub uten mock. Denne hotfixen dokumenterer forbudet og skal trigge redeploy slik at prod matcher `main`.
+
+**Forbudt:** fake Vipps, mock success, `setTimeout` → success. Ekte betaling kommer via Stripe/Vipps API (egen feat-PR).
+
 ## Funksjoner
 
 - 📦 **E-handel** - Butikk med vedprodukter og handlekurv
