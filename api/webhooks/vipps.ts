@@ -5,7 +5,7 @@ import {
   getOrderByProviderRef,
   markOrderPaid,
   saveOrder,
-} from '../_lib/orders';
+} from '../_lib/orders.js';
 
 /**
  * Vipps MobilePay Webhooks API scaffold.
