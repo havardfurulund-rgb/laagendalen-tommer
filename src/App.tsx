@@ -7,6 +7,7 @@ import AIAssistant from './components/AIAssistant';
 import AIStudio from './components/AIStudio';
 import DeliveryCalculator from './components/DeliveryCalculator';
 import Footer from './components/Footer';
+import CheckoutReturnBanner from './components/CheckoutReturnBanner';
 import { INITIAL_PRODUCTS } from './constants';
 import { Product, CartItem } from './types';
 
@@ -42,6 +43,7 @@ const App = () => {
         const quantity = i.quantity + d;
         return quantity > 0 ? [{ ...i, quantity }] : [];
       }))} onClearCart={() => setCart([])} />
+      <CheckoutReturnBanner />
       <AIAssistant />
     </div>
   );
