@@ -5,9 +5,9 @@ export default ({ onNavigate, currentView, cartCount, onOpenCart }: any) => (
   <header className="h-24 bg-white/90 backdrop-blur-xl border-b sticky top-0 z-50 px-8 flex items-center justify-between">
     <div onClick={() => onNavigate('home')} className="cursor-pointer transition hover:opacity-80"><Logo /></div>
     <nav className="hidden lg:flex gap-10">
-      {['home', 'shop', 'delivery', 'studio'].map(id => (
+      {['home', 'shop', 'delivery'].map(id => (
         <button key={id} onClick={() => onNavigate(id)} className={`text-[11px] font-bold uppercase tracking-widest ${currentView === id ? 'text-black' : 'text-gray-400 hover:text-black'}`}>
-          {id === 'home' ? 'Hjem' : id === 'shop' ? 'Butikk' : id === 'delivery' ? 'Frakt' : 'AI Studio'}
+          {id === 'home' ? 'Hjem' : id === 'shop' ? 'Butikk' : 'Frakt'}
         </button>
       ))}
     </nav>
