@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
-import type { TrustedProduct } from './catalog';
-import type { DeliveryMode } from './delivery';
-import type { PaymentProvider } from './orders';
+import type { TrustedProduct } from './catalog.js';
+import type { DeliveryMode } from './delivery.js';
+import type { PaymentProvider } from './orders.js';
 
 export interface CartLineInput {
   id: string;
