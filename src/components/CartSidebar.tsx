@@ -182,7 +182,7 @@ export default function CartSidebar({
           ) : (
             <form id="bestill-form" onSubmit={handleSubmitOrder} className="space-y-4">
               <p className="text-xs text-gray-500">
-                Fyll inn kontaktdetaljer. Du sendes videre til sikker betaling (Stripe midlertidig / Vipps når nøkler er satt). Ingen falsk «betalt»-melding.
+                Fyll inn kontaktdetaljer. Du sendes videre til sikker kortbetaling hos Stripe.
               </p>
               {(['name', 'phone', 'email'] as const).map(field => (
                 <div key={field}>
