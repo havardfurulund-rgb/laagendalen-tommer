@@ -79,6 +79,34 @@ For å bruke AI-funksjonalitet, treng du en Google Gemini API-nøkkel:
    VITE_API_KEY=din_api_nøkkel_her
    ```
 
+
+## Betaling / Vercel env
+
+Checkout: `POST /api/create-payment` → `redirectUrl` (amount = vare+pant+frakt i **øre**, server-recalculated).
+
+Provider (server-only secrets — **aldri** `VITE_*` for merchant keys):
+
+| Var | Formål |
+|-----|--------|
+| `CHECKOUT_PROVIDER` | Optional override: `stripe` \| `vipps`. Default: Stripe if key set, else Vipps |
+| `STRIPE_SECRET_KEY` | Stripe secret (`sk_test_…` / restricted `rk_…`) — temporary path (CoS GO) |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signing (`whsec_…`) for `/api/webhooks/stripe` |
+| `VIPPS_CLIENT_ID` | Vipps ePayment |
+| `VIPPS_CLIENT_SECRET` | Vipps ePayment |
+| `VIPPS_SUBSCRIPTION_KEY` | Ocp-Apim subscription key (alias: `VIPPS_OCP_APIM_SUBSCRIPTION_KEY`) |
+| `VIPPS_MSN` | Merchant serial number |
+| `VIPPS_API_URL` | `https://apitest.vipps.no` (test) or prod URL |
+| `VIPPS_WEBHOOK_SECRET` | Webhook verification for `/api/webhooks/vipps` |
+| `VITE_API_KEY` | Google Gemini (frontend only) |
+
+Order inbox (notification, not payment): prefer `bestilling@laagendalen-tommer.no`; fallback `aina@skmsecure.no`.
+
+API routes: `/api/create-payment`, `/api/order-status`, `/api/webhooks/stripe`, `/api/webhooks/vipps`.
+
+**P0:** Never ship fake Vipps / `setTimeout` success. See hotfix PR if live still serves `23f3ddc`.
+
+**Ikke merge/prod uten CoS + Havard GO.**
+
 ## Lisens
 
 Privat prosjekt for Lågendalen Tømmer

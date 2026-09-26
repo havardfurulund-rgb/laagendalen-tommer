@@ -76,7 +76,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
 ];
 
-/** Locked contact / depot (Havard GO 2026-09-23). Display only — ordering stays web/mailto. */
+/** Locked contact / depot (Havard GO 2026-09-23). Display only — checkout via /api/create-payment. */
 export const CONTACT = {
   phoneDisplay: '+47 919 22 572',
   phoneTel: '+4791922572',
