@@ -119,7 +119,7 @@ export default function CartSidebar({
     });
     window.location.href = mailto;
     setSubmittedNote(
-      'Bestillingen er klargjort som e-postutkast (mailto-stub). Betaling er ikke gjennomført.'
+      'Forhåndsbestillingen er klargjort som e-postutkast (mailto-stub). Betaling er ikke gjennomført.'
     );
   };
 
@@ -137,7 +137,7 @@ export default function CartSidebar({
       <div className="relative w-full max-w-md h-full bg-white flex flex-col shadow-2xl">
         <div className="p-8 border-b flex justify-between items-center">
           <h2 className="display-font text-3xl font-bold italic">
-            {step === 'order' ? 'Bestill' : 'Handlekurv'}
+            {step === 'order' ? 'Forhåndsbestill' : 'Handlekurv'}
           </h2>
           <button type="button" onClick={handleClose} aria-label="Lukk">
             <X />
@@ -252,7 +252,7 @@ export default function CartSidebar({
           ) : (
             <form id="bestill-form" onSubmit={handleSubmitOrder} className="space-y-4">
               <p className="text-xs text-gray-500">
-                Fyll inn kontaktdetaljer. Bestilling sendes som e-postutkast (mailto-stub) — ingen betaling i denne PoC-en.
+                Fyll inn kontaktdetaljer. Forhåndsbestilling sendes som e-postutkast (mailto-stub) — ingen betaling i denne PoC-en.
               </p>
 
               <div>
@@ -433,7 +433,7 @@ export default function CartSidebar({
               }}
               className="w-full py-5 bg-black text-white rounded-2xl font-bold uppercase tracking-widest text-sm hover:bg-opacity-90 transition-all"
             >
-              Bestill
+              Forhåndsbestill
             </button>
           </div>
         )}
@@ -445,7 +445,7 @@ export default function CartSidebar({
               form="bestill-form"
               className="w-full py-5 bg-black text-white rounded-2xl font-bold uppercase tracking-widest text-sm hover:bg-opacity-90 transition-all"
             >
-              Send bestilling
+              Send forhåndsbestilling
             </button>
             <button
               type="button"
