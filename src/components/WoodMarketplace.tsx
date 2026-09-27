@@ -16,11 +16,15 @@ export default function WoodMarketplace({ products, onAddToCart }: WoodMarketpla
             key={product.id}
             className="bg-white p-8 rounded-3xl border shadow-sm hover:shadow-lg transition-shadow overflow-hidden group"
           >
-            <div className="mb-6 h-48 bg-gray-200 rounded-2xl overflow-hidden">
+            <div className="mb-6 aspect-[4/3] bg-[#e9e4da] rounded-2xl overflow-hidden">
               <img
                 src={product.imageUrl}
-                alt={product.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                alt={`${product.name} – tørr ved fra Lågendalen`}
+              loading="lazy"
+              decoding="async"
+              width={800}
+              height={600}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#8E9B90] mb-3">
@@ -43,7 +47,7 @@ export default function WoodMarketplace({ products, onAddToCart }: WoodMarketpla
               </div>
               <button
                 onClick={() => onAddToCart(product)}
-                className="px-8 py-3 bg-black text-white rounded-xl font-bold uppercase text-[10px] tracking-wider hover:bg-opacity-90 transition-all shrink-0"
+                className="px-8 py-3 bg-[#1a241e] text-white rounded-xl font-bold uppercase text-[10px] tracking-wider hover:bg-opacity-90 transition-all shrink-0"
               >
                 Legg i kurv
               </button>
