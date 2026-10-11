@@ -33,13 +33,13 @@ export default function Hero({ onCtaClick }: HeroProps) {
             Ekte norsk varme.
           </h1>
           <p className="text-lg md:text-xl text-white/85 mb-10">
-            Bjørk, furu og blandingsved – hent selv i Kvelde eller få det levert i Vestfold, Telemark og Oslo-området.
+            Forhåndsbestill ved – hent selv i Kvelde eller få utkjøring i Vestfold, Telemark og Oslo-området.
           </p>
           <button
             onClick={onCtaClick}
             className="px-10 py-4 bg-white text-[#1a241e] rounded-2xl font-bold uppercase tracking-widest hover:bg-[#f0ece4] transition-all shadow-lg"
           >
-            Se utvalget
+            Forhåndsbestill ved
           </button>
           <ul className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-white/90">
             {USPS.map((u) => (
