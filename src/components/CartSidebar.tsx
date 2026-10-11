@@ -35,6 +35,7 @@ export default function CartSidebar({
   const [form, setForm] = useState<OrderForm>(EMPTY_FORM);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [fallbackMailto, setFallbackMailto] = useState<string | null>(null);
 
   const vareTotal = useMemo(() => items.reduce((s, i) => s + i.price * i.quantity, 0), [items]);
   const pantTotal = useMemo(() => items.reduce((s, i) => s + i.pant * i.quantity, 0), [items]);
@@ -49,6 +50,7 @@ export default function CartSidebar({
   const handleSubmitOrder = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setFallbackMailto(null);
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) return;
     if (mode === 'home' && !form.address.trim()) return;
     if (mode === 'home' && delivery.zone === null) {
@@ -71,7 +73,23 @@ export default function CartSidebar({
         },
       });
       if ('error' in result) {
-        setError(result.error);
+        // Betaling ikke aktivert ennå (mangler env) eller feil: la kunden sende bestillingen på e-post i stedet.
+        const lines = items.map(i => `- ${i.quantity} x ${i.name} (${i.price * i.quantity} kr)`).join('\n');
+        const body = [
+          'Hei! Jeg vil bestille:',
+          lines,
+          '',
+          `Levering: ${mode === 'pickup' ? 'Hent selv i Kvelde' : `Utkjøring, postnr. ${postalCode}, ${form.address.trim()}`}`,
+          `Totalt ca.: ${totalt} kr`,
+          '',
+          `Navn: ${form.name.trim()}`,
+          `Telefon: ${form.phone.trim()}`,
+          `E-post: ${form.email.trim()}`,
+        ].join('\n');
+        setFallbackMailto(
+          `mailto:bestilling@laagendalen-tommer.no?subject=${encodeURIComponent(`Bestilling Lågendalen Tømmer — ${form.name.trim()}`)}&body=${encodeURIComponent(body)}`
+        );
+        setError('Nettbetaling er ikke åpnet ennå. Send bestillingen på e-post, så bekrefter vi pris og levering og sender betalingsinformasjon.');
         return;
       }
       window.location.href = result.redirectUrl;
@@ -219,6 +237,12 @@ export default function CartSidebar({
                 {totalsBlock()}
               </div>
               {error && <p className="text-xs text-red-700 bg-red-50 border border-red-100 rounded-xl p-3">{error}</p>}
+              {error && fallbackMailto && (
+                <a href={fallbackMailto}
+                  className="block w-full text-center py-4 bg-black text-white rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-opacity-90 transition-all">
+                  Send bestilling på e-post
+                </a>
+              )}
             </form>
           )}
         </div>
