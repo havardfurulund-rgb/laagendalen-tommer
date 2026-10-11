@@ -6,17 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@google/genai": "^1.41.0",
+    "@vercel/node": "^14.0.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.460.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "lucide-react": "^0.460.0",
-    "clsx": "^2.1.1",
+    "stripe": "^22.6.2",
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
+    "@types/node": "^26.6.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
