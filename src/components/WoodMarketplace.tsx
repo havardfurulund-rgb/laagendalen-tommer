@@ -9,6 +9,9 @@ interface WoodMarketplaceProps {
 export default function WoodMarketplace({ products, onAddToCart }: WoodMarketplaceProps) {
   return (
     <section className="py-20">
+      <p className="inline-block mb-6 px-4 py-2 rounded-full bg-[#8E9B90]/20 text-xs font-bold uppercase tracking-widest text-[#1a241e]">
+        Forhåndsbestilling åpen — hent selv eller utkjøring
+      </p>
       <h2 className="display-font text-5xl font-bold mb-16 italic">Vårt utvalg</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map(product => (
