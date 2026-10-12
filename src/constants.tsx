@@ -83,5 +83,5 @@ export const CONTACT = {
   depotAddress: 'Lågendalsveien 1732, 3282 Kvelde',
   depotStreet: 'Lågendalsveien 1732',
   depotPostal: '3282 Kvelde',
-  email: 'bestilling@laagendalen-tommer.no',
+  email: 'hei@skmsecure.no',
 } as const;

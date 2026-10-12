@@ -87,7 +87,7 @@ export default function CartSidebar({
           `E-post: ${form.email.trim()}`,
         ].join('\n');
         setFallbackMailto(
-          `mailto:bestilling@laagendalen-tommer.no?subject=${encodeURIComponent(`Bestilling Lågendalen Tømmer — ${form.name.trim()}`)}&body=${encodeURIComponent(body)}`
+          `mailto:hei@skmsecure.no?subject=${encodeURIComponent(`Bestilling Lågendalen Tømmer — ${form.name.trim()}`)}&body=${encodeURIComponent(body)}`
         );
         setError('Nettbetaling er ikke åpnet ennå. Send bestillingen på e-post, så bekrefter vi pris og levering og sender betalingsinformasjon.');
         return;

@@ -25,6 +25,6 @@ export function getTrustedProduct(id: string): TrustedProduct | undefined {
   return TRUSTED_PRODUCTS.find(p => p.id === id);
 }
 
-/** Prefer bestilling@ if it exists/forwards; fallback aina@ for inbox. */
-export const ORDER_INBOX_PRIMARY = 'bestilling@laagendalen-tommer.no';
+/** Orders go to hei@skmsecure.no (no own order mailbox for LT); aina@ is fallback. */
+export const ORDER_INBOX_PRIMARY = 'hei@skmsecure.no';
 export const ORDER_INBOX_FALLBACK = 'aina@skmsecure.no';
