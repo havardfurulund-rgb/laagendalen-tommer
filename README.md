@@ -99,7 +99,7 @@ Provider (server-only secrets — **aldri** `VITE_*` for merchant keys):
 | `VIPPS_WEBHOOK_SECRET` | Webhook verification for `/api/webhooks/vipps` |
 | `VITE_API_KEY` | Google Gemini (frontend only) |
 
-Order inbox (notification, not payment): prefer `bestilling@laagendalen-tommer.no`; fallback `aina@skmsecure.no`.
+Order inbox (notification, not payment): use `hei@skmsecure.no`; fallback `aina@skmsecure.no`.
 
 API routes: `/api/create-payment`, `/api/order-status`, `/api/webhooks/stripe`, `/api/webhooks/vipps`.
 
